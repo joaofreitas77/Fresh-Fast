@@ -1,0 +1,108 @@
+
+body{
+    background-image: url(./img/hamburguer_fundo_1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+.head{
+    height: 400px;
+    width: 100vw;
+    color: #835129;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+p {
+    font-size: 30px;
+    margin: 0;
+    line-height: 1;
+    font-weight: bold;
+}
+
+.logo {
+    width: 150px;
+    margin: 0.1px 0;
+    color: white;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    margin-top: 100px;
+}
+
+.button{
+    width: 100vw;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+button{
+    width: 300px;
+    height: 80px;
+    font-family: 'Poppins', sans-serif;;
+    font-weight: bold;
+    font-size: 25px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 15px white;
+    border: none;
+    background-color:rgb(131, 81, 41);
+    color: white;
+    box-shadow: 0 0 15px rgba(131, 81, 41, 0.5);
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+button:hover{
+    background-color: rgba(178, 124, 74);
+    transform: scale(1.03);
+    transition: 0.5 ease;
+}
+
+@media(max-width: 480px){
+    .head{
+        height: 30vh;
+    }
+    .logo {
+        width: 100px;
+    }
+    .text {
+        text-align: center;
+        margin-top: 3vh;
+    }
+    .button {
+        margin-top: 3vh;
+    }
+}
+
+@media(max-width: 768px){
+    .head {
+        height: 300px;
+    }
+    .logo {
+        width: 100px;
+    }
+    .text {
+        margin-top: 50px;
+        font-size: 18px;
+    }
+    button {
+        width: 200px;
+        height: 60px;
+        font-size: 18px;
+    }
+}
