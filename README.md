@@ -4,7 +4,7 @@
 ---
 
 <h2 style="text-align: center;">Layout do projeto</h2>
-<img src="./img/layout.png" style="align-items: center; justify-content: center; text-align: center;">
+<p align="center" ><img src="./img/layout.png" style=""></p>
 
 <h2 style="text-align: center;">Funcionalidades</h2>
 <ul>
