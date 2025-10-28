@@ -5,7 +5,7 @@ O Fresh&Fast tem como objetivo facilitar a conexão entre consumidores e pequeno
 
 
 <h2 align="center">Layout do projeto</h2>
-<p align="center" ><img src="./img/layout.png" style=""></p>
+<p align="center" ><img src="./img/layout.png"></p>
 
 <h2 align="center">Funcionalidades</h2>
 <ul>
