@@ -1,0 +1,146 @@
+:root {
+    --escuro: #1F1F1F;
+    --primaria: #D9D0C7;
+    --segundaria: #C68C53;
+    --segundaria-claro: #D9A676;
+    --claro: #E0E0E0;
+}
+
+body {
+    background-color: var(--escuro);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    background-color: var(--escuro);
+    width: 100%;
+    max-width: 420px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 054);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+header {
+    background-color: var(--primaria);
+    text-align: center;
+    padding: 50px 20px;
+    position: relative;
+}
+
+.logo p {
+    margin: 0;
+}
+
+.logo .linha1 {
+    color: var(--segundaria);
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.logo .linha2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -10px;
+}
+
+.logo .linha2 p {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #000;
+    margin: 0 4px;
+}
+
+main {
+    padding: 40px 30px 30px;
+    margin-top: -60px;
+    margin-top: 20px;
+}
+
+label {
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 6px;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--claro);
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+input::placeholder {
+    color: #666;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background: var(--segundaria);
+    transition: 0.3s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    background: var(--segundaria-claro);
+    transform: scale(1.02);
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #ccc;
+}
+
+.login-link a {
+    color: var(--segundaria);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+    color: var(--segundaria-claro);
+}
+#boasvindas{
+    text-align: center;
+    color: var(--segundaria);
+    font-family: 'Poppins';
+    font-size: 1.8rem;
+    font-weight: bolder;
+    margin-top: 4px;
+    margin-bottom: 6px;
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 60px 10px 80px;
+    }
+
+    main {
+        padding: 30px 20px 20px;
+    }
+}
