@@ -60,7 +60,7 @@ button{
     border-radius: 8px;
     box-shadow: 3px 3px 15px white;
     border: none;
-    background-color:rgb(131, 81, 41);
+    background-color: #C68C53;
     color: white;
     box-shadow: 0 0 15px rgba(131, 81, 41, 0.5);
     cursor: pointer;
@@ -68,7 +68,7 @@ button{
 }
 
 button:hover{
-    background-color: rgba(178, 124, 74);
+    background-color: #D9A676;
     transform: scale(1.03);
     transition: 0.5 ease;
 }
