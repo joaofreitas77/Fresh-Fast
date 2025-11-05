@@ -7,6 +7,7 @@
     <title>Fresh & Fast - Home</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../global.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
@@ -15,7 +16,7 @@
 <body>
     <header>
         <div class="cabecalho">
-            <img src="../../img/whiteFF.png" alt="" class="logo">
+            <h1>Fresh&Fast</h1>
             <nav class="navegacao">
                 <ul class="menu">
                     <li><a href="#inicio" class="menu-link">Início</a></li>
@@ -28,14 +29,18 @@
             <div class="icons">
                 <img src="../../img/user.png" alt="">
                 <img src="../../img/cart.png" alt="">
+                <button class="hamburger"></button>
             </div>
         </div>
     </header>
     <div class="line"></div>
 
     <main id="inicio" class="inicio">
-        <img src="../../img/FF.png" alt="Foto de Fresh&Fast" class="foto-FF">
-        <h1>Fresh&Fast</h1>
+        <img src="../../img/carrossel/0.jpg" alt="Foto de Fresh&Fast" id="carrossel" class="foto-FF">
+        <div class="inicio-descricao">
+            <h2 id="descricao-titulo">Peça, relaxe e saboreie</h2>
+            <p id="descricao-texto">Somos um delivery local dedicado a levar comida fresca, saborosa e feita com carinho até a sua porta. Simples, rápido e delicioso!</p>
+        </div>
     </main>
 
     <div class="line"></div>
@@ -60,7 +65,7 @@
         <p>&copy;2025 por equipe Fresh&Fast</p>
         <p>Todos os direitos reservados.</p>
     </footer>
-
+    <script src="app.js"></script>
 </body>
 
 </html>
