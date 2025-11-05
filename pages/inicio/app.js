@@ -1,9 +1,15 @@
 const hamburger = document.querySelector('.hamburger');
 const nav = document.querySelector('.navegacao');
+const cabecalho = document.querySelector('header')
 
 hamburger.addEventListener('click', () => {
   nav.classList.toggle('active');
+  console.log(nav.classList)
   hamburger.classList.toggle('open');
+  cabecalho.style.backgroundColor = 'transparent'
+  if(nav.classList.value === 'navegacao active'){
+    cabecalho.style.backgroundColor = 'rgba(31, 31, 31, 0.95)'
+  }
 });
 
 hamburger.addEventListener("click", () => openMenu());
