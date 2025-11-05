@@ -63,16 +63,42 @@ header {
     background: none;
     border-top: 3px solid var(--claro);
     cursor: pointer;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    z-index: 1001;
 }
 
 .hamburger::before,
 .hamburger::after {
     content: "";
-    display: block;
+    position: absolute;
+    left: 0;
     width: 30px;
-    height: 3px;
-    background: var(--claro);
-    margin-top: 5px;
+    border-top: 3px solid var(--claro);
+    transition: 0.3s;
+}
+
+.hamburger::before {
+    top: 7px;
+}
+
+.hamburger::after {
+    top: 16px;
+}
+
+.hamburger.open {
+    border-top-color: transparent;
+}
+
+.hamburger.open::before {
+    transform: rotate(45deg);
+    top: 10px;
+}
+
+.hamburger.open::after {
+    transform: rotate(-45deg);
+    top: 10px;
 }
 
 .navegacao {
@@ -161,11 +187,11 @@ header {
     padding: 40px 20px;
 }
 
-.inicio-descricao h2{
+.inicio-descricao h2 {
     font-size: 50px;
 }
 
-.inicio-descricao p{
+.inicio-descricao p {
     font-size: 20px;
 }
 
@@ -187,7 +213,6 @@ header {
     margin: 0 auto;
     border-radius: 16px;
     border: 1px solid var(--segundaria-claro);
-    backdrop-filter: blur(10px);
     background-color: var(--segundaria);
 }
 
@@ -209,163 +234,76 @@ header {
 }
 
 @media (max-width: 768px) {
-    header {
-        height: 80px;
-        justify-content: space-between;
-        padding: 0 1rem;
-    }
-
-    .cabecalho {
-        margin-inline: auto;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .logo {
-        height: 60px;
-        margin-left: 0;
-    }
-
     .hamburger {
         display: block;
-        z-index: 1;
     }
 
     .navegacao {
-        width: auto;
-        display: flex;
+        position: fixed;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 100px);
+        background-color: rgba(31, 31, 31, 0.95);
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: none;
-        position: static;
-        padding: 0;
-        border: none;
-    }
-
-    .menu {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        clip-path: circle(100px at 90% -15%);
-        transition: 1s ease-out;
-        background-color: var(--segundaria);
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        gap: 0;
-        pointer-events: none;
-    }
-
-    .navegacao.active .menu {
-        clip-path: circle(1500px at 90% -15%);
-        pointer-events: all;
-    }
-
-    .menu-link {
-        font-size: 20px;
-        padding: 0.3rem 0.5rem;
+        gap: 2rem;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: all 0.4s ease;
+        z-index: 1000;
     }
 
     .icons {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-right: 10px;
     }
 
     .icons img {
-        width: 25px;
-        height: 25px;
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
     }
 
-    .inicio img {
-        width: 200px;
-        height: 200px;
+    .navegacao.active {
+        transform: translateY(0);
+        opacity: 1;
     }
 
-    .inicio h1 {
-        font-size: 2rem;
-    }
-
-    .info-titulo {
-        font-size: 1.8rem;
-    }
-
-    .info-caixa {
-        padding: 1rem;
-    }
-
-    .footer {
+    .menu {
+        flex-direction: column;
         height: auto;
-        padding: 1.5rem;
+        gap: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
-    header {
-        width: 100%;
-        height: auto;
-        padding: 0.5rem 1rem;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 0.3rem;
-    }
-
-    .logo {
-        height: 45px;
-        flex-shrink: 0;
-    }
-
-    .navegacao {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        background: none;
-        position: static;
-        border: none;
-        padding: 0;
-        margin-top: 0.3rem;
-    }
-
-    .menu {
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .menu-link {
-        font-size: 0.75rem;
-        padding: 0.2rem 0.3rem;
-        font-weight: 500;
-    }
-
-    .icons {
-        display: flex;
-        align-items: center;
-        gap: 0.7rem;
-        margin-left: auto;
-        margin-right: 0.5rem;
-    }
-
-    .icons img {
-        width: 20px;
-        height: 20px;
-    }
-
-    .inicio img {
-        width: 150px;
-        height: 150px;
-    }
-
-    .inicio h1 {
+    .cabecalho h1 {
         font-size: 1.5rem;
     }
 
+    .inicio-descricao h2 {
+        font-size: 1.6rem;
+    }
+
+    .inicio-descricao p {
+        font-size: 0.9rem;
+    }
+
+    .info-titulo {
+        font-size: 1.6rem;
+    }
+
+    .info-caixa {
+        padding: 0.8rem;
+    }
+
     .footer {
-        padding: 1rem;
+        text-align: center;
+        padding: 1.5rem;
     }
 }

@@ -1,15 +1,11 @@
-const hamburger = document.querySelector(".hamburger");
-const navegacao = document.querySelector(".navegacao");
-const info = document.querySelector("#info")
-let menuAberto = false
-function openMenu (){
-    navegacao.classList.toggle("active")
-    if (navegacao.classList.value === 'navegacao active'){
-        info.style.display = 'none'
-    } else {
-        info.style.display = 'block'
-    }
-}
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('.navegacao');
+
+hamburger.addEventListener('click', () => {
+  nav.classList.toggle('active');
+  hamburger.classList.toggle('open');
+});
+
 hamburger.addEventListener("click", () => openMenu());
 
 const imagemCarrossel = document.querySelector("#carrossel");
