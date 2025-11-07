@@ -12,18 +12,19 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 20px;
+    width: 100%;
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
 }
 
 .container {
     background-color: var(--escuro);
-    width: 100%;
-    max-width: 420px;
+    width: 100vw;
+    max-width: 480px;
     border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 054);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.54);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
