@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --escuro: #1F1F1F;
+    --primaria: #D9D0C7;
+    --segundaria: #C68C53;
+    --segundaria-claro: #D9A676;
+    --claro: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: var(--escuro);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    background-color: var(--segundaria);
+    z-index: 1;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+}
+
+.back{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: 20px;
+    transition: 0.3s ease;
+}
+
+.back:hover{
+    transition: 0.3s ease;
+    transform: scale(1.3);
+}
+
+.icons img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.vsTitulo{
+    color: var(--claro);
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: 150px;
+    margin-left: 20px;
+}
+
+.visualizacaoRapida{
+    display: flex;
+    gap: 20px;
+    padding: 50px 20px 30px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+.visualizacaoRapida::-webkit-scrollbar {
+    height: 6px;
+    width: 5px;
+}
+
+.visualizacaoRapida::-webkit-scrollbar-thumb {
+    background: var(--segundaria-claro);
+    border-radius: 10px;
+}
+
+.visualizacaoRapida::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.comidas {
+    flex: 0 0 auto;
+    text-align: center;
+    width: 120px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.comidas:hover {
+    transition: 0.3s ease;
+    transform: scale(1.05);
+}
+
+.caixa{
+    display: flex;
+    padding: 2rem;
+    gap: 2rem;
+    max-width: 100vw;
+    margin: 0;
+    border-radius: 16px;
+    border: 2px solid var(--segundaria);
+    background-color: var(--escuro);
+}
+
+.comidas-caixa{
+    padding: 1rem;
+    max-width: 1000px;
+    margin: 0;
+    border-radius: 16px;
+    border: 1px solid var(--segundaria);
+    background-color: var(--segundaria);
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.comidas-caixa:hover{
+    transition: 0.3s ease;
+    transform: scale(1.05);
+}
+
+.comidas img {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    object-fit: cover;
+    margin-bottom: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.comidas p {
+    color: var(--claro);
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.comidas p:hover{
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
