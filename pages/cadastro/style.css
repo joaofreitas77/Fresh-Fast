@@ -85,6 +85,19 @@ input {
     box-sizing: border-box;
 }
 
+#formCadastro span{
+    display: flex;
+}
+
+#formCadastro span input#checkbox{
+    width: 16px;
+    height: 16px;
+}
+
+#formCadastro span label{
+    margin-left: 10px;
+}
+
 input::placeholder {
     color: #666;
 }

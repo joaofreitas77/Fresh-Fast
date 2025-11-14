@@ -89,6 +89,19 @@ input::placeholder {
     color: #666;
 }
 
+#formulario span{
+    display: flex;
+}
+
+#formulario span input#checkbox{
+    width: 16px;
+    height: 16px;
+}
+
+#formulario span label{
+    margin-left: 10px;
+}
+
 button {
     width: 100%;
     padding: 14px;
