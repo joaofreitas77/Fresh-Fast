@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Poppins, sans-serif;
 }
 
 :root {
@@ -12,25 +13,15 @@
     --claro: #ffffff;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-body{
-    background-color: var(--escuro);
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-    max-width: 100vw;
-    overflow-x: hidden;
-    font-family: 'Poppins', sans-serif;
+body {
+    background: var(--escuro);
+    padding: 40px;
+    padding-top: 140px;
+    color: var(--claro);
 }
 
 header {
     background-color: var(--segundaria);
-    z-index: 1;
     width: 100%;
     height: 100px;
     display: flex;
@@ -38,6 +29,10 @@ header {
     align-items: center;
     justify-content: space-between;
     position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999; 
 }
 
 .back{
@@ -49,7 +44,6 @@ header {
 }
 
 .back:hover{
-    transition: 0.3s ease;
     transform: scale(1.3);
 }
 
@@ -60,96 +54,133 @@ header {
     margin-right: 20px;
 }
 
-.vsTitulo{
-    color: var(--claro);
-    font-size: 30px;
-    font-weight: 600;
-    margin-top: 150px;
-    margin-left: 20px;
+.categoria-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
 }
 
-.visualizacaoRapida{
+.btn-nav {
+    background-color: var(--segundaria);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 22px;
     display: flex;
-    gap: 20px;
-    padding: 50px 20px 30px;
-    overflow-x: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.categoria-slider {
+    display: flex;
+    overflow: hidden;
     scroll-behavior: smooth;
+    gap: 30px;
     width: 100%;
 }
 
-.visualizacaoRapida::-webkit-scrollbar {
-    height: 6px;
-    width: 5px;
+.categoria-item {
+    min-width: 120px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.5s;
 }
 
-.visualizacaoRapida::-webkit-scrollbar-thumb {
-    background: var(--segundaria-claro);
+.categoria-item:hover{
+    transform: scale(1.05);
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.img-box {
+    width: 120px;
+    height: 120px;
+    background: var(--segundaria);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-box img {
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
 }
 
-.visualizacaoRapida::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.comidas {
-    flex: 0 0 auto;
-    text-align: center;
-    width: 120px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.comidas:hover {
-    transition: 0.3s ease;
-    transform: scale(1.05);
-}
-
-.caixa{
-    display: flex;
-    padding: 2rem;
-    gap: 2rem;
-    max-width: 100vw;
-    margin: 0;
-    border-radius: 16px;
-    border: 2px solid var(--segundaria);
-    background-color: var(--escuro);
-}
-
-.comidas-caixa{
-    padding: 1rem;
-    max-width: 1000px;
-    margin: 0;
-    border-radius: 16px;
-    border: 1px solid var(--segundaria);
-    background-color: var(--segundaria);
-    transition: 0.3s ease;
-    cursor: pointer;
-}
-
-.comidas-caixa:hover{
-    transition: 0.3s ease;
-    transform: scale(1.05);
-}
-
-.comidas img {
-    width: 100px;
-    height: 100px;
-    border-radius: 20px;
-    object-fit: cover;
-    margin-bottom: 8px;
-    background-color: #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-.comidas p {
-    color: var(--claro);
+p {
+    margin-top: 8px;
     font-size: 14px;
     font-weight: 500;
-    transition: 0.3s ease;
+    color: var(--claro);
 }
 
-.comidas p:hover{
-    font-weight: 700;
-    transition: 0.3s ease;
+@media (max-width: 768px) {
+
+    header {
+        height: 80px;
+        padding: 0 15px;
+    }
+
+    body {
+        padding-top: 95px;
+    }
+
+    .img-box {
+        width: 100px;
+        height: 100px;
+    }
+
+    .categoria-item {
+        min-width: 100px;
+    }
+
+    .img-box img {
+        width: 60px;
+    }
+
+    p {
+        font-size: 13px;
+    }
 }
 
+@media (max-width: 480px) {
+
+    header {
+        height: 70px;
+    }
+
+    body {
+        padding-top: 85px;
+    }
+
+    .img-box {
+        width: 85px;
+        height: 85px;
+    }
+
+    .img-box img {
+        width: 50px;
+    }
+
+    .categoria-item {
+        min-width: 85px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    .btn-nav {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+}

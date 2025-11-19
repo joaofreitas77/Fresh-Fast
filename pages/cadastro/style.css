@@ -24,8 +24,7 @@ body {
     max-width: 480px;
     border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.54);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
 }
 
 header {
@@ -146,5 +145,47 @@ button:hover {
 
     main {
         padding: 30px 20px 20px;
+    }
+}
+
+
+@media (max-width: 1366px) and (max-height: 768px) {
+    
+    body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow-y: hidden;
+        padding: 0;
+    }
+
+    .container {
+        transform: scale(0.77);
+        transform-origin: top center;
+        margin: 0;
+    }
+
+    header {
+        padding: 50px 20px 70px;
+    }
+
+    main {
+        padding: 30px 30px 20px;
+        margin-top: -20px;
+    }
+
+    input {
+        padding: 14px;
+        margin-bottom: 18px;
+    }
+
+    button {
+        padding: 14px;
+        margin-top: 18px;
+    }
+
+    .login-link {
+        margin-top: 18px;
     }
 }

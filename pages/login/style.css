@@ -11,10 +11,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+    height: auto;
     margin: 0;
-    overflow: hidden;
+    overflow-x: hidden;
+    padding: 20px;
+    overflow-y: auto;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -24,8 +25,7 @@ body {
     max-width: 420px;
     border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 054);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
 }
 
 header {
@@ -61,8 +61,7 @@ header {
 
 main {
     padding: 40px 30px 30px;
-    margin-top: -60px;
-    margin-top: 20px;
+    margin-top: -40px;
 }
 
 label {
@@ -89,16 +88,16 @@ input::placeholder {
     color: #666;
 }
 
-#formulario span{
+#formulario span {
     display: flex;
 }
 
-#formulario span input#checkbox{
+#formulario span input#checkbox {
     width: 16px;
     height: 16px;
 }
 
-#formulario span label{
+#formulario span label {
     margin-left: 10px;
 }
 
@@ -138,7 +137,8 @@ button:hover {
     text-decoration: underline;
     color: var(--segundaria-claro);
 }
-#boasvindas{
+
+#boasvindas {
     text-align: center;
     color: var(--segundaria);
     font-family: 'Poppins';
@@ -147,6 +147,26 @@ button:hover {
     margin-top: 4px;
     margin-bottom: 6px;
 }
+
+@media (max-width: 1366px) and (max-height: 768px) {
+    body {
+        align-items: center;
+        overflow: hidden;
+        padding: 0;
+    }
+
+    .container {
+        transform: scale(0.96);
+        transform-origin: top center;
+        margin: 0;
+    }
+
+    .left-side img {
+        height: 85%;
+        object-fit: cover;
+    }
+}
+
 
 @media (max-width: 480px) {
     header {
