@@ -14,6 +14,9 @@
 }
 
 body {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
     background: var(--escuro);
     padding: 40px;
     padding-top: 140px;
@@ -180,7 +183,7 @@ p {
 }
 
 .footer {
-    width: 100%;
+    min-width: 100%;
     height: 100px;
     display: flex;
     flex-direction: column;
