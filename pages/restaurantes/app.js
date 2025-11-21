@@ -10,10 +10,4 @@ prev.onclick = () => {
     slider.scrollLeft -= 200;
 };
 
-setInterval(() => {
-    slider.scrollLeft += 200;
 
-    if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth)
-        slider.scrollLeft = 0;
-
-}, 3000);

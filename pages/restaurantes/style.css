@@ -54,10 +54,15 @@ header {
     margin-right: 20px;
 }
 
+h1{
+    text-align: center;
+}
+
+
 .categoria-container {
     width: 100%;
-    max-width: 1200px;
-    margin: auto;
+    max-width: 1400px;
+    margin: 30px auto;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -69,7 +74,7 @@ header {
     color: white;
     border: none;
     width: 45px;
-    height: 60px;
+    height: 50px;
     border-radius: 50%;
     cursor: pointer;
     font-size: 22px;
@@ -82,28 +87,34 @@ header {
     display: flex;
     overflow: hidden;
     scroll-behavior: smooth;
-    gap: 30px;
+    gap: 20px;
     width: 100%;
+    height: 200px;
 }
 
 .categoria-item {
-    min-width: 120px;
+    min-width: 150px;
+    height: 180px;
     text-align: center;
     cursor: pointer;
-    transition: 0.5s;
+    transition: 0.3s;
+    border-radius: 16px;
 }
 
 .categoria-item:hover{
     transform: scale(1.05);
-    font-weight: bold;
-    transition: 0.5s;
+    font-weight: 1200;
+    transition: 0.3s;
+    background-color: var(--segundaria);
+    border-radius: 16px;
+    height: 180px;
 }
 
 .img-box {
-    width: 120px;
-    height: 120px;
-    background: var(--segundaria);
-    border-radius: 10px;
+    transition: 0.3s;
+    width: 150px;
+    height: 130px;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -119,6 +130,52 @@ p {
     margin-top: 8px;
     font-size: 14px;
     font-weight: 500;
+    color: var(--claro);
+}
+
+.lojas-container {
+    width: 100%;
+    padding: 20px 40px;
+}
+
+.lojas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+}
+
+.loja-card {
+    background: transparent;
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.loja-card:hover {
+    background-color: var(--segundaria);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.loja-img {
+    width: 65px;
+    height: 65px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.loja-info h3 {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.categoria, .tempo-preco {
+    font-size: 13px;
     color: var(--claro);
 }
 
