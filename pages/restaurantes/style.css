@@ -42,7 +42,7 @@ header {
     width: 30px;
     height: 30px;
     cursor: pointer;
-    margin-left: 20px;
+    margin-left: 10px;
     transition: 0.3s ease;
 }
 
@@ -54,7 +54,7 @@ header {
     width: 30px;
     height: 30px;
     cursor: pointer;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 h1{
@@ -191,33 +191,60 @@ p {
     justify-content: center;
     margin-top: 50px;
 }
+@media (max-width: 1024px) {
+
+    body {
+        padding: 25px;
+        padding-top: 120px;
+    }
+
+    .categoria-item {
+        min-width: 130px;
+    }
+
+    .img-box {
+        width: 130px;
+        height: 115px;
+    }
+}
 
 @media (max-width: 768px) {
 
     header {
-        height: 80px;
+        height: 75px;
         padding: 0 15px;
     }
 
     body {
-        padding-top: 95px;
+        padding-top: 110px;
     }
 
-    .img-box {
-        width: 100px;
-        height: 100px;
+    .btn-nav {
+        width: 40px;
+        height: 40px;
     }
 
     .categoria-item {
-        min-width: 100px;
+        min-width: 110px;
     }
 
-    .img-box img {
-        width: 60px;
+    .img-box {
+        width: 110px;
+        height: 95px;
     }
 
-    p {
-        font-size: 13px;
+    .lojas {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .loja-card {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .loja-img {
+        width: 55px;
+        height: 55px;
     }
 }
 
@@ -228,29 +255,69 @@ p {
     }
 
     body {
-        padding-top: 85px;
+        padding-top: 100px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
 
-    .img-box {
-        width: 85px;
-        height: 85px;
-    }
-
-    .img-box img {
-        width: 50px;
-    }
-
-    .categoria-item {
-        min-width: 85px;
-    }
-
-    p {
-        font-size: 12px;
+    h1 {
+        font-size: 20px;
     }
 
     .btn-nav {
-        width: 38px;
-        height: 38px;
-        font-size: 18px;
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+
+    .categoria-item {
+        min-width: 90px;
+    }
+
+    .img-box {
+        width: 90px;
+        height: 80px;
+    }
+
+    .lojas-container {
+        padding: 10px;
+    }
+
+    .lojas {
+        gap: 15px;
+    }
+
+    .loja-card {
+        padding: 10px;
+    }
+
+    .loja-img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 360px) {
+
+    body {
+        padding-top: 95px;
+    }
+
+    .categoria-item {
+        min-width: 80px;
+    }
+
+    .img-box {
+        width: 80px;
+        height: 70px;
+    }
+
+    .loja-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .loja-img {
+        margin-bottom: 8px;
     }
 }
