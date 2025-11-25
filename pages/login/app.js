@@ -3,6 +3,8 @@ formulario.addEventListener('submit', function (event) {
     event.preventDefault()
     const usersList = JSON.parse(localStorage.getItem("users"));
     let sameEmailCount = 0;
+    let nome = "";
+    let numero = "";
 
     const email = event.target.email.value
     const senha = event.target.senha.value
@@ -10,6 +12,8 @@ formulario.addEventListener('submit', function (event) {
     for (let i = 0; i < usersList.length; i++) {
         if (email === usersList[i].user.email) {
             if (senha === usersList[i].user.senha) {
+                numero = usersList[i].user.numero
+                nome = usersList[i].user.nome
                 sameEmailCount++;
             }
         }
@@ -18,7 +22,7 @@ formulario.addEventListener('submit', function (event) {
     if (sameEmailCount == 0) {
         alert("Usuário inexistente!!")
     } else {
-        localStorage.setItem("logedUser", JSON.stringify({ email }))
+        localStorage.setItem("logedUser", JSON.stringify({ email, nome, numero }))
         window.location.href = '/pages/inicio/index.html'
     }
 
