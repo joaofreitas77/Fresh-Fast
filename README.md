@@ -19,6 +19,7 @@ O Fresh&Fast tem como objetivo facilitar a conexão entre consumidores e pequeno
 <ul>
     <li>HTML</li>
     <li>CSS</li>
+    <li>JavaScript</li>
 </ul>
 
 <h2 align="center">Colaboradores</h2>
