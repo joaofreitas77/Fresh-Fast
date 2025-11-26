@@ -3,6 +3,7 @@ formulario.addEventListener('submit', function (event) {
     event.preventDefault()
     const usersList = JSON.parse(localStorage.getItem("users"));
     let sameEmailCount = 0;
+    let senhaIncorreta = 0;
     let nome = "";
     let numero = "";
 
@@ -15,18 +16,27 @@ formulario.addEventListener('submit', function (event) {
                 numero = usersList[i].user.numero
                 nome = usersList[i].user.nome
                 sameEmailCount++;
+            } else {
+                senhaIncorreta++;
             }
         }
+        senhaIncorreta = 0;
     }
 
-    if (sameEmailCount == 0) {
-        alert("Usuário inexistente!!")
-    } else {
-        localStorage.setItem("logedUser", JSON.stringify({ email, nome, numero }))
-        window.location.href = '/pages/inicio/index.html'
+    if (senhaIncorreta === 0) {
+        if (sameEmailCount === 0) {
+            alert("Usuário inexistente!!")
+        } else {
+            localStorage.setItem("logedUser", JSON.stringify({ email, nome, numero }))
+            window.location.href = '/pages/inicio/index.html'
+        }
+    }else{
+        alert("Senha incorreta")
     }
+
 
     sameEmailCount = 0;
+    senhaIncorreta = 0;
 })
 
 const checkbox = document.querySelector('#checkbox')
@@ -35,6 +45,5 @@ checkbox.addEventListener('change', function (event) {
         document.querySelector('#senha').type = 'text'
     } else {
         document.querySelector('#senha').type = 'password'
-
     }
 })
