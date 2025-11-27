@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+}
+
+:root {
+    --escuro: #1F1F1F;
+    --primaria: #D9D0C7;
+    --segundaria: #C68C53;
+    --segundaria-claro: #D9A676;
+    --claro: #ffffff;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    background: var(--escuro);
+    padding: 40px;
+    padding-top: 140px;
+    color: var(--claro);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+header {
+    background-color: var(--segundaria);
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+.back {
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: 0.3s ease;
+}
+
+.back:hover {
+    transform: scale(1.3);
+}
+
+
+h1 {
+    text-align: center;
+}
+
+.logo {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.restaurante-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.descricao {
+    font-size: 16px;
+}
+
+.categoria {
+    font-size: 14px;
+}
+
+.produtos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card-produto {
+    background: var(--escuro);
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.card-produto:hover {
+    transition: 0.3s ease;
+    transform: scale(1.03);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.8);
+
+}
+
+.card-produto img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card-produto h3 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.card-produto p {
+    font-size: 14px;
+}
+
+.card-produto .preco {
+    font-size: 18px;
+    font-weight: bold;
+    color: #c68c53;
+}

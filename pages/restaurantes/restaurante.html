@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurante</title>
+    <link rel="stylesheet" href="restaurante.css">
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../global.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <a href="../restaurantes/index.html"><img class="back" src="../../img/left.png" alt=""></a>
+        <h1 id="restauranteNome">Carregando...</h1>
+    </header>
+
+    <!-- CABEÇALHO DO RESTAURANTE -->
+    <div class="restaurante-header">
+        <img id="logo" class="logo">
+
+        <div class="restaurante-texto">
+            <p id="descricao" class="descricao"></p>
+            <p id="categoria" class="categoria"></p>
+        </div>
+    </div>
+
+    <h2>Cardápio</h2>
+
+    <!-- A LISTA REAL DE PRODUTOS ENTRA AQUI -->
+    <div id="produtos" class="produtos-container"></div>
+
+    <script src="../restaurantes/restaurantes.js"></script>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+        carregarDadosDoRestaurante(id);
+    </script>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
