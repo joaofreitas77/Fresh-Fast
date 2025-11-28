@@ -20,8 +20,6 @@ function abrirRestaurante(id) {
 //   LÓGICA DA PÁGINA INDIVIDUAL
 // ==========================================
 
-const params = new URLSearchParams(window.location.search);
-const restauranteId = params.get("id");
 
 function carregarDadosDoRestaurante(id) {
     const restaurante = restaurantes.find(r => r.id == id);
@@ -50,6 +48,8 @@ function carregarDadosDoRestaurante(id) {
         `;
     });
 }
+
+
 
 
 
