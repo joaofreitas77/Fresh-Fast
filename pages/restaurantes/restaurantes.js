@@ -227,46 +227,54 @@ const restaurantes = [
 ];
 
 function carregarDadosDoRestaurante(id) {
-    const restaurante = restaurantes.find(r => r.id == id);
-    if (!restaurante) return;
+  const restaurante = restaurantes.find(r => r.id == id);
+  if (!restaurante) return;
 
-    document.getElementById("restauranteNome").textContent = restaurante.nome;
-    document.getElementById("descricao").textContent = restaurante.descricao;
-    document.getElementById("categoria").textContent = restaurante.categoria || "";
-    document.getElementById("logo").src = restaurante.logo;
+  document.getElementById("restauranteNome").textContent = restaurante.nome;
+  document.getElementById("descricao").textContent = restaurante.descricao;
+  document.getElementById("categoria").textContent = restaurante.categoria || "";
+  document.getElementById("logo").src = restaurante.logo;
 
-    const produtosDiv = document.getElementById("produtos");
-    produtosDiv.innerHTML = "";
+  const produtosDiv = document.getElementById("produtos");
+  produtosDiv.innerHTML = "";
 
-    restaurante.produtos.forEach(produto => {
-        produtosDiv.innerHTML += `
-            <div class="card-produto"
-                 data-prod-id="${produto.id}"
-                 data-nome="${produto.nome}"
-                 data-preco="${produto.precoValue}"
-                 data-desc="${produto.descricao}"
-                 data-img="${produto.img}">
-                
-                <img src="${produto.img}" alt="${produto.nome}">
-                <h3>${produto.nome}</h3>
-                <p class="preco">${produto.preco}</p>
-            </div>
-        `;
-    });
+  restaurante.produtos.forEach(produto => {
+    produtosDiv.innerHTML += `
+    <div class="card-produto"
+         data-prod-id="${produto.id}"
+         data-nome="${produto.nome}"
+         data-preco="${produto.precoValue}"
+         data-desc="${produto.descricao}"
+         data-img="${produto.img}">
 
-    document.querySelectorAll(".card-produto").forEach(card => {
-        card.addEventListener("click", () => {
-            const produto = {
-                id: card.dataset.prodId,
-                nome: card.dataset.nome,
-                preco: Number(card.dataset.preco),
-                descricao: card.dataset.desc,
-                img: card.dataset.img
-            };
-            abrirModal(produto);
-        });
-    });
-}
+        <img src="${produto.img}" alt="${produto.nome}">
+
+        <h3>${produto.nome}</h3>
+        <div class="fav-area">
+            <img src="../../img/favoritos.png" 
+                 class="fav-icon"
+                 style="width:24px;height:24px;cursor:pointer;"
+                 onclick="adicionarFavorito('${produto.id}', '${produto.nome}', '${produto.img}', '${produto.preco}')">
+        </div>
+        <p class="preco">${produto.preco}</p>
+    </div>
+  `;
+  });
+
+};
+
+document.querySelectorAll(".card-produto").forEach(card => {
+  card.addEventListener("click", () => {
+    const produto = {
+      id: card.dataset.prodId,
+      nome: card.dataset.nome,
+      preco: Number(card.dataset.preco),
+      descricao: card.dataset.desc,
+      img: card.dataset.img
+    };
+    abrirModal(produto);
+  });
+});
 
 
 const modal = document.getElementById("produtoModal");
@@ -280,25 +288,31 @@ const btnAddCarrinho = document.getElementById("btnAddCarrinho");
 let produtoSelecionado = null;
 
 function abrirModal(produto) {
-    produtoSelecionado = produto;
-    modalImg.src = produto.img;
-    modalNome.textContent = produto.nome;
-    modalDesc.textContent = produto.descricao;
-    modalPreco.textContent = "R$ " + Number(produto.preco).toFixed(2);
-    modal.style.display = "flex";
+  produtoSelecionado = produto;
+  modalImg.src = produto.img;
+  modalNome.textContent = produto.nome;
+  modalDesc.textContent = produto.descricao;
+  modalPreco.textContent = "R$ " + Number(produto.preco).toFixed(2);
+  modal.style.display = "flex";
 }
 
 if (fecharModal) fecharModal.onclick = () => modal.style.display = "none";
 window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
 
 if (btnAddCarrinho) btnAddCarrinho.onclick = () => {
-    if (!produtoSelecionado) return;
-    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-    carrinho.push(produtoSelecionado);
-    localStorage.setItem("carrinho", JSON.stringify(carrinho));
-    window.alert("Adicionado ao carrinho!")
+  if (!produtoSelecionado) return;
+  let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+  carrinho.push(produtoSelecionado);
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  window.alert("Adicionado ao carrinho!")
 };
 
+function adicionarFavorito(id, nome, img, preco) {
+  let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+  favoritos.push({ id, nome, img, preco });
+  localStorage.setItem("favoritos", JSON.stringify(favoritos));
+  alert("Adicionado aos favoritos!");
+}
 
 
 
