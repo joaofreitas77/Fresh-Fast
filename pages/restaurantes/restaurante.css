@@ -181,3 +181,17 @@ h1 {
     transition: 0.3s;
     background: #6ae06e;
 }
+
+@media (max-width: 480px) {
+    .produtos-container {
+        grid-template-columns: 1fr !important;
+        gap: 16px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .produtos-container {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}

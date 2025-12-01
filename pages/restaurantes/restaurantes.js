@@ -296,7 +296,7 @@ if (btnAddCarrinho) btnAddCarrinho.onclick = () => {
     let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
     carrinho.push(produtoSelecionado);
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
-    window.location.href = "../carrinho/carrinho.html";
+    window.alert("Adicionado ao carrinho!")
 };
 
 

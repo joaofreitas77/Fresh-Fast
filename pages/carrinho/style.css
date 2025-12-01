@@ -1,0 +1,253 @@
+:root {
+    --escuro: #1F1F1F;
+    --primaria: #D9D0C7;
+    --segundaria: #C68C53;
+    --segundaria-claro: #D9A676;
+    --claro: #ffffff;
+    --Vermelho: #a33
+}
+
+body {
+    background: var(--escuro);
+    color: var(--claro);
+    font-family: Poppins, sans-serif;
+    padding: 20px;
+}
+
+
+header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+.back {
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: 0.3s ease;
+}
+
+.back:hover {
+    transform: scale(1.3);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--claro);
+}
+
+.item-card {
+    background: var(--escuro);
+    color: var(--claro);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    gap: 15px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+.item-card img {
+    width: 90px;
+    height: 90px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.item-info h3 {
+    margin: 0 0 5px;
+    color: var(--claro);
+}
+
+.remove-btn {
+    background: var(--segundaria);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--claro);
+    height: 40px;
+    transition: 0.3s;
+}
+
+.remove-btn:hover{
+    transition: 0.3s;
+    transform: scale(1.03);
+}
+
+.vazio {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 18px;
+    color: var(--claro);
+}
+
+.button{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.finalizar-btn {
+    width: 300px;
+    background: var(--segundaria);
+    color: var(--claro);
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.finalizar-btn:hover{
+    transition: 0.3s;
+    transform: scale(1.03);
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: var(--primaria);
+    padding: 25px;
+    border-radius: 18px;
+    text-align: center;
+    width: 85%;
+    max-width: 300px;
+    color: var(--escuro);
+}
+
+.total {
+    font-size: 22px;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.pagar-btn {
+    background: var(--segundaria);
+    color: var(--claro);
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.fechar-btn {
+    background: var(--Vermelho);
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .item-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .item-card img {
+        width: 110px;
+        height: 110px;
+    }
+
+    .item-info h3 {
+        font-size: 18px;
+    }
+
+    .remove-btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .finalizar-btn {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .item-card {
+        padding: 12px;
+    }
+
+    .item-card img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .finalizar-btn {
+        width: 80%;
+        font-size: 17px;
+    }
+
+    .modal-content {
+        width: 70%;
+        max-width: 320px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .item-card {
+        margin: 20px auto;
+        width: 70%;
+    }
+
+    .button {
+        justify-content: center;
+    }
+
+    .finalizar-btn {
+        width: 350px;
+    }
+
+    .modal-content {
+        max-width: 350px;
+    }
+}
