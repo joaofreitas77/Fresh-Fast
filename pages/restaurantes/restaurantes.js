@@ -263,8 +263,36 @@ function carregarDadosDoRestaurante(id) {
 
 };
 
-document.querySelectorAll(".card-produto").forEach(card => {
-  card.addEventListener("click", () => {
+document.addEventListener("click", (e) => {
+  const card = e.target.closest(".card-produto");
+
+  if (e.target.classList.contains("fav-icon") || e.target.closest(".fav-icon")) {
+    const favEl = e.target.classList.contains("fav-icon") ? e.target : e.target.closest(".fav-icon");
+
+    const parentCard = favEl.closest(".card-produto");
+    if (!parentCard) return;
+
+    const produtoFav = {
+      id: parentCard.dataset.prodId,
+      nome: parentCard.dataset.nome,
+      img: parentCard.dataset.img,
+      preco: parentCard.dataset.preco
+    };
+
+    let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+    const existe = favoritos.some(f => f.id === produtoFav.id);
+    if (!existe) {
+      favoritos.push(produtoFav);
+      localStorage.setItem("favoritos", JSON.stringify(favoritos));
+      favEl.style.opacity = 0.7;
+      window.alert("Adicionado aos favoritos!");
+    } else {
+      window.alert("Já está nos favoritos.");
+    }
+    return;
+  }
+
+  if (card) {
     const produto = {
       id: card.dataset.prodId,
       nome: card.dataset.nome,
@@ -272,10 +300,10 @@ document.querySelectorAll(".card-produto").forEach(card => {
       descricao: card.dataset.desc,
       img: card.dataset.img
     };
-    abrirModal(produto);
-  });
-});
 
+    abrirModal(produto);
+  }
+});
 
 const modal = document.getElementById("produtoModal");
 const modalImg = document.getElementById("modalImg");
@@ -289,30 +317,50 @@ let produtoSelecionado = null;
 
 function abrirModal(produto) {
   produtoSelecionado = produto;
-  modalImg.src = produto.img;
-  modalNome.textContent = produto.nome;
-  modalDesc.textContent = produto.descricao;
-  modalPreco.textContent = "R$ " + Number(produto.preco).toFixed(2);
-  modal.style.display = "flex";
+
+  if (modalImg) modalImg.src = produto.img || "";
+  if (modalNome) modalNome.textContent = produto.nome || "";
+  if (modalDesc) modalDesc.textContent = produto.descricao || "";
+  if (modalPreco) modalPreco.textContent = "R$ " + (Number(produto.preco) || 0).toFixed(2);
+
+  if (modal) {
+    modal.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
 }
 
-if (fecharModal) fecharModal.onclick = () => modal.style.display = "none";
-window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
-
-if (btnAddCarrinho) btnAddCarrinho.onclick = () => {
-  if (!produtoSelecionado) return;
-  let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-  carrinho.push(produtoSelecionado);
-  localStorage.setItem("carrinho", JSON.stringify(carrinho));
-  window.alert("Adicionado ao carrinho!")
-};
-
-function adicionarFavorito(id, nome, img, preco) {
-  let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
-  favoritos.push({ id, nome, img, preco });
-  localStorage.setItem("favoritos", JSON.stringify(favoritos));
-  alert("Adicionado aos favoritos!");
+if (fecharModal) {
+  fecharModal.addEventListener("click", () => {
+    if (modal) modal.style.display = "none";
+    document.body.style.overflow = "";
+  });
 }
 
+window.addEventListener("click", (e) => {
+  if (!modal) return;
+  if (e.target === modal) {
+    modal.style.display = "none";
+    document.body.style.overflow = "";
+  }
+});
 
+if (btnAddCarrinho) {
+  btnAddCarrinho.addEventListener("click", () => {
+    if (!produtoSelecionado) return;
 
+    const item = {
+      id: produtoSelecionado.id,
+      nome: produtoSelecionado.nome,
+      img: produtoSelecionado.img,
+      preco: Number(produtoSelecionado.preco)
+    };
+
+    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    carrinho.push(item);
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+    window.alert("Produto adicionado ao carrinho!");
+    if (modal) modal.style.display = "none";
+    document.body.style.overflow = "";
+  });
+}
